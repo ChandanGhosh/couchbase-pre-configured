@@ -1,5 +1,5 @@
 # Couchbase
-Couchbase latest community server pre-configured with single node cluster and a default bucket "todo". 
+Couchbase latest server pre-configured with single node cluster and a default bucket "todo". 
 
 
 # Building
