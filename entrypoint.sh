@@ -8,10 +8,10 @@ set -m
 sleep 15
 
 # Setup index and memory quota
-curl -v http://127.0.0.1:8091/pools/default -d memoryQuota=300 -d indexMemoryQuota=300
+curl -u ${USERNAME}:${PASSWORD} -v http://127.0.0.1:8091/pools/default -d memoryQuota=300 -d 'indexMemoryQuota=300' -d 'ftsMemoryQuota=256'
 
 # Setup services
-curl -v http://127.0.0.1:8091/node/controller/setupServices -d services=kv%2Cn1ql%2Cindex
+curl -u ${USERNAME}:${PASSWORD} -v http://127.0.0.1:8091/node/controller/setupServices -d 'services=kv,n1ql,index,fts'
 
 # Setup credentials
 curl -v http://127.0.0.1:8091/settings/web -d port=8091 -d username=${USERNAME} -d password=${PASSWORD}
